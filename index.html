@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Storm&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="text">Фотогалерея</h1>
+    <img src="https://static.dw.com/image/62146452_605.jpg" class="1">
+    <img src="https://brf.be/wp-content/uploads/2023/12/nawalny1nataliakolesnikovaafp-1000x667.jpg" class="2">
+    <img src="https://static.euronews.com/articles/stories/08/11/24/60/1200x675_cmsv2_b547ca18-8aab-5662-b6fd-6be1e3ec2593-8112460.jpg" class="3">
+    <style>
+        body {
+    background: #0f0f0f;
+    text-align: center;
+}
+
+/* Контейнер для фото */
+img {
+    width: 450px;
+    height: 300px;
+    object-fit: cover;
+    margin: 40px;
+    border-radius: 25px;
+    transition: 0.5s ease;
+}
+
+/* ========================= */
+/* ФОТО 1 — НЕОН */
+/* ========================= */
+
+.\31 {
+    padding: 15px;
+    background: linear-gradient(45deg, #ff0000, #ff00ff, #00ffff, #00ff00);
+    background-size: 400% 400%;
+    animation: glow1 5s linear infinite;
+    box-shadow:
+        0 0 30px #ff00ff,
+        0 0 60px #00ffff,
+        0 0 100px #ff0000;
+}
+
+@keyframes glow1 {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ========================= */
+/* ФОТО 2 — 3D */
+/* ========================= */
+
+.\32 {
+    box-shadow:
+        0 30px 70px rgba(0,0,0,0.8),
+        0 0 40px #00ffff;
+}
+
+.\32:hover {
+    transform: perspective(1200px) rotateY(20deg) rotateX(10deg) scale(1.1);
+    box-shadow:
+        0 50px 100px rgba(0,0,0,0.9),
+        0 0 60px #ff00ff,
+        0 0 100px #00ffff;
+}
+
+/* ========================= */
+/* ФОТО 3 — ЗОЛОТА РАМКА */
+/* ========================= */
+
+.\33 {
+    padding: 15px;
+    background: linear-gradient(45deg, gold, orange, yellow);
+    box-shadow:
+        0 0 40px gold,
+        0 0 80px orange;
+}
+
+    
+    </style>
+</body>
+</html>
