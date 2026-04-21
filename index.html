@@ -15,22 +15,9 @@ body {
     text-align: center;
     color: white;
     font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
 }
 
-/* НЕОНОВИЙ КУРСОР */
-.cursor {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    position: fixed;
-    background: #ff00ff;
-    pointer-events: none;
-    box-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff;
-    transform: translate(-50%, -50%);
-}
-
-/* ЗАГОЛОВОК */
+/* Заголовок */
 .text {
     font-family: 'Rubik Storm', cursive;
     font-size: 60px;
@@ -38,14 +25,13 @@ body {
     text-shadow: 0 0 20px #ff00ff, 0 0 60px #00ffff;
 }
 
-/* БІО */
+/* Блок */
 .bio {
     max-width: 900px;
     margin: 40px auto;
     padding: 30px;
     background: rgba(255,255,255,0.05);
     border-radius: 20px;
-    box-shadow: 0 0 40px rgba(255,0,255,0.3);
 }
 
 .name {
@@ -58,7 +44,7 @@ body {
     color: gold;
 }
 
-/* ГАЛЕРЕЯ */
+/* Галерея */
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -74,13 +60,12 @@ img {
     transition: 0.4s;
 }
 
-/* ХОВЕР ЕФЕКТ */
 img:hover {
-    transform: scale(1.15) rotate(2deg);
+    transform: scale(1.1);
     box-shadow: 0 0 40px #ff00ff, 0 0 80px #00ffff;
 }
 
-/* КНОПКА */
+/* Кнопка */
 button {
     margin: 30px;
     padding: 15px 30px;
@@ -90,14 +75,13 @@ button {
     background: linear-gradient(45deg, #ff00ff, #00ffff);
     color: white;
     cursor: pointer;
-    box-shadow: 0 0 20px #ff00ff;
 }
 
 button:hover {
     transform: scale(1.1);
 }
 
-/* ФАКТ */
+/* Факт */
 #fact {
     font-size: 20px;
     margin-top: 20px;
@@ -108,8 +92,6 @@ button:hover {
 </head>
 
 <body>
-
-<div class="cursor" id="cursor"></div>
 
 <h1 class="text">Фотогалерея ⚡</h1>
 
@@ -122,35 +104,22 @@ button:hover {
     </p>
 </div>
 
-<h2>📸 Дорослі фото</h2>
+<h2>📸 Фото</h2>
 <div class="gallery">
     <img src="https://static.dw.com/image/62146452_605.jpg">
     <img src="https://brf.be/wp-content/uploads/2023/12/nawalny1nataliakolesnikovaafp-1000x667.jpg">
     <img src="https://static.euronews.com/articles/stories/08/11/24/60/1200x675_cmsv2_b547ca18-8aab-5662-b6fd-6be1e3ec2593-8112460.jpg">
 </div>
 
-<h2>👶 У дитинстві (приклад)</h2>
-<div class="gallery">
-    <!-- реальних фото мало у відкритому доступі, тому приклади -->
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTViJpJ3blnkSLwx7Jjg-fhZBEhiQksBg8F4g&s">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjvcbHe2Qvl9ID8YN9A47sk1-v3XuSpmvdWQ&s">
-</div>
-
-<button onclick="showFact()">Показати факт ⚡</button>
+<button id="factBtn">Показати факт ⚡</button>
 <div id="fact"></div>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-/* НЕОНОВИЙ КУРСОР */
-const cursor = document.getElementById("cursor");
+    const button = document.getElementById("factBtn");
+    const factBlock = document.getElementById("fact");
 
-document.addEventListener("mousemove", (e) => {
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
-});
-
-/* ФАКТИ */
-function showFact() {
     const facts = [
         "Заснував Фонд боротьби з корупцією",
         "Його розслідування набирали мільйони переглядів",
@@ -158,10 +127,12 @@ function showFact() {
         "Став символом опозиції в Росії"
     ];
 
-    const random = facts[Math.floor(Math.random() * facts.length)];
-    document.getElementById("fact").innerText = random;
-}
+    button.addEventListener("click", function () {
+        const random = facts[Math.floor(Math.random() * facts.length)];
+        factBlock.textContent = random;
+    });
 
+});
 </script>
 
 </body>
