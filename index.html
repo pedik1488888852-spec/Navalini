@@ -11,7 +11,7 @@
 <style>
 
 body {
-    background: radial-gradient(circle at center, #000000, #0f0f0f, #000000);
+    background: radial-gradient(circle at top, #000000, #0a0a0a, #000000);
     text-align: center;
     color: white;
     font-family: 'Montserrat', sans-serif;
@@ -20,9 +20,9 @@ body {
 /* Заголовок */
 .text {
     font-family: 'Rubik Storm', cursive;
-    font-size: 60px;
+    font-size: 70px;
     color: #ff00ff;
-    text-shadow: 0 0 20px #ff00ff, 0 0 60px #00ffff;
+    text-shadow: 0 0 20px #ff00ff, 0 0 80px #00ffff;
 }
 
 /* Блок */
@@ -30,18 +30,20 @@ body {
     max-width: 900px;
     margin: 40px auto;
     padding: 30px;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255,255,255,0.07);
     border-radius: 20px;
+    box-shadow: 0 0 30px #ff00ff;
 }
 
 .name {
-    font-size: 42px;
-    text-shadow: 0 0 20px #00ffff;
+    font-size: 46px;
+    text-shadow: 0 0 25px #00ffff;
 }
 
 .years {
-    font-size: 24px;
+    font-size: 26px;
     color: gold;
+    text-shadow: 0 0 10px gold;
 }
 
 /* Галерея */
@@ -61,31 +63,61 @@ img {
 }
 
 img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 40px #ff00ff, 0 0 80px #00ffff;
+    transform: scale(1.15) rotate(1deg);
+    box-shadow: 0 0 40px #ff00ff, 0 0 100px #00ffff;
 }
 
 /* Кнопка */
 button {
-    margin: 30px;
-    padding: 15px 30px;
-    font-size: 18px;
+    margin: 40px;
+    padding: 18px 40px;
+    font-size: 22px;
     border: none;
-    border-radius: 15px;
-    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    border-radius: 20px;
+    background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff);
+    background-size: 300% 300%;
     color: white;
     cursor: pointer;
+    box-shadow: 0 0 30px #ff00ff;
+    animation: glowBtn 4s infinite linear;
+}
+
+@keyframes glowBtn {
+    0% { background-position: 0% }
+    50% { background-position: 100% }
+    100% { background-position: 0% }
 }
 
 button:hover {
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
-/* Факт */
+/* ФАКТ — ГОЛОВНЕ */
 #fact {
-    font-size: 20px;
-    margin-top: 20px;
-    color: #00ffff;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 30px;
+    color: #ffffff;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+
+    padding: 20px;
+    border-radius: 20px;
+
+    background: rgba(0,255,255,0.1);
+    box-shadow: 0 0 30px #00ffff, 0 0 60px #ff00ff;
+
+    opacity: 0;
+    transform: scale(0.9);
+    transition: 0.4s;
+}
+
+/* коли показується */
+#fact.show {
+    opacity: 1;
+    transform: scale(1);
 }
 
 </style>
@@ -110,7 +142,12 @@ button:hover {
     <img src="https://brf.be/wp-content/uploads/2023/12/nawalny1nataliakolesnikovaafp-1000x667.jpg">
     <img src="https://static.euronews.com/articles/stories/08/11/24/60/1200x675_cmsv2_b547ca18-8aab-5662-b6fd-6be1e3ec2593-8112460.jpg">
 </div>
-<h2>👶 У дитинстві (приклад)</h2> <div class="gallery"> <!-- реальних фото мало у відкритому доступі, тому приклади --> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTViJpJ3blnkSLwx7Jjg-fhZBEhiQksBg8F4g&s"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjvcbHe2Qvl9ID8YN9A47sk1-v3XuSpmvdWQ&s"> </div>
+
+<h2>👶 У дитинстві (приклад)</h2>
+<div class="gallery">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTViJpJ3blnkSLwx7Jjg-fhZBEhiQksBg8F4g&s">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjvcbHe2Qvl9ID8YN9A47sk1-v3XuSpmvdWQ&s">
+</div>
 
 <button id="factBtn">Показати факт ⚡</button>
 <div id="fact"></div>
@@ -130,7 +167,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     button.addEventListener("click", function () {
         const random = facts[Math.floor(Math.random() * facts.length)];
-        factBlock.textContent = random;
+
+        factBlock.classList.remove("show");
+
+        setTimeout(() => {
+            factBlock.textContent = random;
+            factBlock.classList.add("show");
+        }, 100);
     });
 
 });
