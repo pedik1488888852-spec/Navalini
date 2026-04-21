@@ -11,10 +11,60 @@
 <style>
 
 body {
-    background: radial-gradient(circle at top, #000000, #0a0a0a, #000000);
+    margin: 0;
     text-align: center;
     color: white;
     font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+
+    background: linear-gradient(270deg, #ff00ff, #00ffff, #ff0000, #00ff00, #ffff00, #ff00ff);
+    background-size: 1200% 1200%;
+    animation: gradientMove 12s ease infinite;
+}
+
+/* рух градієнта */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* неонові світіння */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(150px);
+    z-index: -1;
+}
+
+/* рожеве світло */
+body::before {
+    background: #ff00ff;
+    top: 0;
+    left: 0;
+    animation: move1 10s infinite alternate;
+}
+
+/* блакитне світло */
+body::after {
+    background: #00ffff;
+    bottom: 0;
+    right: 0;
+    animation: move2 12s infinite alternate;
+}
+
+@keyframes move1 {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(300px, 150px); }
+}
+
+@keyframes move2 {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(-300px, -150px); }
 }
 
 /* Заголовок */
