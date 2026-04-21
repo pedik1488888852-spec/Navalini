@@ -1,132 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Storm&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+<title>Фотогалерея</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Storm&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    background: radial-gradient(circle at center, #000000, #0f0f0f, #000000);
+    text-align: center;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* НЕОНОВИЙ КУРСОР */
+.cursor {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: fixed;
+    background: #ff00ff;
+    pointer-events: none;
+    box-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff;
+    transform: translate(-50%, -50%);
+}
+
+/* ЗАГОЛОВОК */
+.text {
+    font-family: 'Rubik Storm', cursive;
+    font-size: 60px;
+    color: #ff00ff;
+    text-shadow: 0 0 20px #ff00ff, 0 0 60px #00ffff;
+}
+
+/* БІО */
+.bio {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255,0,255,0.3);
+}
+
+.name {
+    font-size: 42px;
+    text-shadow: 0 0 20px #00ffff;
+}
+
+.years {
+    font-size: 24px;
+    color: gold;
+}
+
+/* ГАЛЕРЕЯ */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+img {
+    width: 320px;
+    height: 220px;
+    object-fit: cover;
+    margin: 20px;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+/* ХОВЕР ЕФЕКТ */
+img:hover {
+    transform: scale(1.15) rotate(2deg);
+    box-shadow: 0 0 40px #ff00ff, 0 0 80px #00ffff;
+}
+
+/* КНОПКА */
+button {
+    margin: 30px;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff00ff;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* ФАКТ */
+#fact {
+    font-size: 20px;
+    margin-top: 20px;
+    color: #00ffff;
+}
+
+</style>
 </head>
 
 <body>
 
-    <h1 class="text">Фотогалерея</h1>
+<div class="cursor" id="cursor"></div>
 
-    <!-- НОВЫЙ БЛОК -->
-    <div class="bio">
-        <h2 class="name">ОЛЕКСІЙ АНАТОЛІЙОВИЧ НАВАЛЬНИЙ</h2>
-        <div class="years">1976–2024</div>
+<h1 class="text">Фотогалерея ⚡</h1>
 
-        <p class="description">
-            Олексій Анатолійович Навальний народився 4 червня 1976 року. 
-            Він був відомим російським опозиційним політиком, юристом та антикорупційним активістом. 
-            Навальний здобув широку популярність завдяки розслідуванням про корупцію серед високопосадовців у Росії. 
-            Він заснував Фонд боротьби з корупцією, який публікував резонансні викриття. 
-            У 2020 році його було отруєно, після чого він проходив лікування в Німеччині. 
-            Після повернення до Росії його заарештували та ув’язнили. 
-            Помер 16 лютого 2024 року в колонії, що викликало широкий міжнародний резонанс.
-        </p>
-    </div>
+<div class="bio">
+    <h2 class="name">ОЛЕКСІЙ НАВАЛЬНИЙ</h2>
+    <div class="years">1976–2024</div>
 
-    <img src="https://static.dw.com/image/62146452_605.jpg" class="1">
-    <img src="https://brf.be/wp-content/uploads/2023/12/nawalny1nataliakolesnikovaafp-1000x667.jpg" class="2">
-    <img src="https://static.euronews.com/articles/stories/08/11/24/60/1200x675_cmsv2_b547ca18-8aab-5662-b6fd-6be1e3ec2593-8112460.jpg" class="3">
+    <p>
+        Відомий опозиційний політик, юрист та антикорупційний активіст.
+    </p>
+</div>
 
-    <style>
-        body {
-            background: #0f0f0f;
-            text-align: center;
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-        }
+<h2>📸 Дорослі фото</h2>
+<div class="gallery">
+    <img src="https://static.dw.com/image/62146452_605.jpg">
+    <img src="https://brf.be/wp-content/uploads/2023/12/nawalny1nataliakolesnikovaafp-1000x667.jpg">
+    <img src="https://static.euronews.com/articles/stories/08/11/24/60/1200x675_cmsv2_b547ca18-8aab-5662-b6fd-6be1e3ec2593-8112460.jpg">
+</div>
 
-        .text {
-            font-family: 'Rubik Storm', cursive;
-            font-size: 50px;
-            color: #ff00ff;
-            text-shadow: 0 0 20px #ff00ff;
-        }
+<h2>👶 У дитинстві (приклад)</h2>
+<div class="gallery">
+    <!-- реальних фото мало у відкритому доступі, тому приклади -->
+    <img src="https://via.placeholder.com/300x200?text=Childhood+1">
+    <img src="https://via.placeholder.com/300x200?text=Childhood+2">
+</div>
 
-        /* БЛОК С ИНФОРМАЦИЕЙ */
-        .bio {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 30px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 20px;
-            box-shadow: 0 0 40px rgba(255,0,255,0.3);
-        }
+<button onclick="showFact()">Показати факт ⚡</button>
+<div id="fact"></div>
 
-        .name {
-            font-size: 42px;
-            font-weight: 600;
-            color: #ffffff;
-            text-shadow: 0 0 20px #00ffff;
-            margin-bottom: 10px;
-        }
+<script>
 
-        .years {
-            font-size: 24px;
-            color: #ffcc00;
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px gold;
-        }
+/* НЕОНОВИЙ КУРСОР */
+const cursor = document.getElementById("cursor");
 
-        .description {
-            font-size: 18px;
-            line-height: 1.6;
-            color: #ddd;
-        }
+document.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+});
 
-        img {
-            width: 450px;
-            height: 300px;
-            object-fit: cover;
-            margin: 40px;
-            border-radius: 25px;
-            transition: 0.5s ease;
-        }
+/* ФАКТИ */
+function showFact() {
+    const facts = [
+        "Заснував Фонд боротьби з корупцією",
+        "Його розслідування набирали мільйони переглядів",
+        "Пережив отруєння у 2020 році",
+        "Став символом опозиції в Росії"
+    ];
 
-        .\31 {
-            padding: 15px;
-            background: linear-gradient(45deg, #ff0000, #ff00ff, #00ffff, #00ff00);
-            background-size: 400% 400%;
-            animation: glow1 5s linear infinite;
-            box-shadow:
-                0 0 30px #ff00ff,
-                0 0 60px #00ffff,
-                0 0 100px #ff0000;
-        }
+    const random = facts[Math.floor(Math.random() * facts.length)];
+    document.getElementById("fact").innerText = random;
+}
 
-        @keyframes glow1 {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .\32 {
-            box-shadow:
-                0 30px 70px rgba(0,0,0,0.8),
-                0 0 40px #00ffff;
-        }
-
-        .\32:hover {
-            transform: perspective(1200px) rotateY(20deg) rotateX(10deg) scale(1.1);
-            box-shadow:
-                0 50px 100px rgba(0,0,0,0.9),
-                0 0 60px #ff00ff,
-                0 0 100px #00ffff;
-        }
-
-        .\33 {
-            padding: 15px;
-            background: linear-gradient(45deg, gold, orange, yellow);
-            box-shadow:
-                0 0 40px gold,
-                0 0 80px orange;
-        }
-
-    </style>
+</script>
 
 </body>
 </html>
